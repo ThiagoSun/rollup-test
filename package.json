@@ -11,6 +11,8 @@
   "module": "dist/index.esm.js",
   "dependencies": {
     "lodash": "^4.17.19",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "the-answer": "^1.0.0"
   },
   "devDependencies": {
@@ -27,8 +29,6 @@
     "@rollup/plugin-url": "^5.0.1",
     "babel-preset-latest": "^6.24.1",
     "less": "^3.12.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "rollup": "^2.21.0",
     "rollup-plugin-postcss": "^3.1.2"
   }
