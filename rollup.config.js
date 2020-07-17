@@ -1,10 +1,14 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import image from '@rollup/plugin-image';
 import url from '@rollup/plugin-url';
 import postcss from 'rollup-plugin-postcss';
 import json from '@rollup/plugin-json';
+import progress from 'rollup-plugin-progress';
+import fileSize from 'rollup-plugin-filesize';
 import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel';
 import path from 'path';
+import fs from 'fs-extra';
 import pkg from './package.json';
 
 const extensions = [
@@ -23,7 +27,7 @@ export default [
 		input: 'src/index.js',
 		output: {
 			name: 'howLongUntilLunch',
-			file: pkg.browser,
+			file: 'dist/index.umd.js',
 			format: 'umd'
 		},
     external: [/@babel\/runtime/, 'react', 'react-dom'],
@@ -46,6 +50,8 @@ export default [
         presets: ['@babel/preset-react']
       }),
       commonjs(), // so Rollup can convert `ms` to an ES module
+      progress(),
+      fileSize()
     ]
 	},
 	{
@@ -87,6 +93,8 @@ export default [
         presets: ['@babel/preset-react']
       }),
       commonjs(), // so Rollup can convert `ms` to an ES module
+      progress(),
+      fileSize()
     ]
   }
 ];
