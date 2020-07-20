@@ -27,7 +27,7 @@ export default [
 		input: 'src/index.js',
 		output: {
 			name: 'howLongUntilLunch',
-			file: 'dist/index.umd.js',
+			file: pkg.unpkg,
 			format: 'umd'
 		},
     external: [/@babel\/runtime/, 'react', 'react-dom'],

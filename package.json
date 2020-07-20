@@ -7,8 +7,14 @@
     "build": "rm -rf dist & rollup -c",
     "dev": "rollup -c -w"
   },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/"
+  ],
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
+  "unpkg": "dist/index.umd.js",
   "dependencies": {
     "lodash": "^4.17.19",
     "react": "^16.13.1",
