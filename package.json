@@ -1,6 +1,6 @@
 {
   "name": "rt-rollup-utils",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Sun Mengge <sunmengge@xiaoheiban.cn>",
   "license": "MIT",
   "scripts": {
@@ -17,8 +17,6 @@
   "unpkg": "dist/index.umd.js",
   "dependencies": {
     "lodash": "^4.17.19",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "the-answer": "^1.0.0"
   },
   "devDependencies": {
@@ -41,6 +39,9 @@
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-postcss": "^3.1.2",
     "rollup-plugin-progress": "^1.1.2"
+  },
+  "peerDependencies": {
+    "react": ">=15"
   },
   "sideEffects": false
 }
