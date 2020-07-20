@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react')) :
   typeof define === 'function' && define.amd ? define(['exports', 'react'], factory) :
-  (global = global || self, factory(global.howLongUntilLunch = {}, global.React));
+  (global = global || self, factory(global.rtRollupUtils = {}, global.React));
 }(this, (function (exports, React) { 'use strict';
 
   var React__default = 'default' in React ? React['default'] : React;
@@ -2566,3 +2566,4 @@
   Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
+//# sourceMappingURL=index.umd.js.map
