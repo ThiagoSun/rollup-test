@@ -1,20 +1,19 @@
 var index = 42;
 
 const f0 = () => {
-  console.log('the answer is ' + index);
+  return index;
 };
 
 const f2 = () => {
-  console.log(2);
+  return 2;
 };
 
 const f3 = () => {
-  console.log(3);
+  return 3;
 };
 
 const f4 = () => {
-  console.log(4);
-  f3();
+  return f3() + 1;
 };
 
 var index$1 = {
