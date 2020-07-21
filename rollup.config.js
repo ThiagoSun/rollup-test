@@ -10,7 +10,7 @@ import babel from '@rollup/plugin-babel';
 // import { uglify } from 'rollup-plugin-uglify';
 import { terser } from "rollup-plugin-terser";
 import path from 'path';
-// import fs from 'fs-extra';
+import fs from 'fs-extra';
 import pkg from './package.json';
 
 const umdCommonConfigs = {
@@ -166,8 +166,56 @@ const esm = [{
   ])
 }];
 
+const createSingleEsm = (name) => ({
+  input: `src/packages/${name}/index.js`,
+  output: [{
+    file: `${name}.js`,
+    format: 'esm',
+  }],
+  external: [/@babel\/runtime/, 'react'],
+  plugins: [
+    resolve(), // so Rollup can find `ms`
+    url({
+      destDir: path.join(__dirname, 'dist', 'assets', 'images'),
+      include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.gif', '**/*.jpeg']
+    }),
+    postcss({
+      extract: path.resolve(`dist/${name}/index.css`),
+      // Automatically enable CSS modules for .module.css .module.sss .module.scss .module.sass .module.styl .module.stylus .module.less files.
+      autoModules: true,
+      minimize: true
+    }),
+    json(),
+    babel({
+      babelHelpers: 'runtime',
+      exclude: /node_modules/,
+      presets: ['@babel/preset-react'],
+      plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
+    }),
+    commonjs(), // so Rollup can convert `ms` to an ES module
+    progress(),
+    fileSize()
+  ]
+});
+
+const isDir = (dir) => {
+  return fs.statSync(dir).isDirectory();
+}
+
+const packageConfigs = [];
+const prefix = path.join(__dirname, 'src/packages');
+const packages = fs.readdirSync(prefix);
+packages.forEach(dir => {
+  const absolutePath = path.join(prefix, dir);
+  if (isDir(absolutePath)) {
+    const cfg = createSingleEsm(dir);
+    packageConfigs.push(cfg);
+  }
+});
+
 export default [
   ...umd,
   ...cjs,
-  ...esm
+  ...esm,
+  ...packageConfigs
 ];

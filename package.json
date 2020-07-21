@@ -10,7 +10,11 @@
   "files": [
     "LICENSE",
     "README.md",
-    "dist/"
+    "dist/",
+    "Button.js",
+    "ImgTest.js",
+    "cloneDeep.js",
+    "theAnswer.js"
   ],
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
