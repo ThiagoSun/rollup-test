@@ -13,16 +13,6 @@ import path from 'path';
 // import fs from 'fs-extra';
 import pkg from './package.json';
 
-const extensions = [
-  `.ts`,
-  `.tsx`,
-  `.js`,
-  `.jsx`,
-  `.es6`,
-  `.es`,
-  `.mjs`
-];
-
 const umdCommonConfigs = {
   input: 'src/index.js',
   external: [/@babel\/runtime/, 'react'],

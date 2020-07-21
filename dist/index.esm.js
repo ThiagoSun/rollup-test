@@ -2517,7 +2517,7 @@ const f4 = () => {
   f3();
 };
 
-var styles = {"btn":"index-module_btn__3uhod"};
+var styles = {"btn":"index-module_btn__1rK5U"};
 
 function Button(props) {
   const [clicked, setClicked] = useState(false);
