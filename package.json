@@ -20,7 +20,7 @@
   "module": "dist/index.esm.js",
   "unpkg": "dist/index.umd.js",
   "dependencies": {
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.21",
     "the-answer": "^1.0.0"
   },
   "devDependencies": {
